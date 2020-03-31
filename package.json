@@ -5,6 +5,7 @@
   "license": "GNU General Public License v3.0",
   "main": "./dist/electron/main.js",
   "scripts": {
+    "release": "npm run build --publish onTagOrDraft",
     "build": "cross-env BUILD_TARGET=electron node .electron-vue/build.js && electron-builder -mwl",
     "build:dir": "cross-env BUILD_TARGET=electronnode .electron-vue/build.js && electron-builder --dir",
     "build:clean": "cross-env BUILD_TARGET=clean node .electron-vue/build.js",
