@@ -1,5 +1,5 @@
 {
-  "name": "magnetw",
+  "name": "magnetx",
   "version": "3.1.1",
   "description": "磁力链接聚合搜索",
   "license": "GNU General Public License v3.0",
@@ -23,8 +23,8 @@
     "merge-filter-db": "node scripts/merge-filter-db.js"
   },
   "build": {
-    "productName": "magnetW",
-    "appId": "app.magnetw.desktop",
+    "productName": "magnetX",
+    "appId": "app.magnetx.desktop",
     "artifactName": "${name}-${version}-${os}.${ext}",
     "directories": {
       "output": "build/releases"

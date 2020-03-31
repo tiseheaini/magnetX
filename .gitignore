@@ -11,7 +11,7 @@ thumbs.db
 workspace.xml
 src/dist
 Project_Default.xml
-package-lock.json
+# package-lock.json
 .idea
 scripts/filter-data/.temp
 build/icons/.icns.iconset

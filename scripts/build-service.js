@@ -57,7 +57,7 @@ json.scripts = {
 delete json.build
 delete json.appName
 delete json.description
-json.name = 'magnetw-service'
+json.name = 'magnetx-service'
 fs.writeFileSync(path.resolve(releases, 'package.json'), JSON.stringify(json, '\t', 2))
 
 /**
