@@ -16,7 +16,6 @@
         <setting class="main-child" v-show="settingActivated"></setting>
       </transition>
     </el-main>
-    <github-badge></github-badge>
   </el-container>
 </template>
 
@@ -24,13 +23,12 @@
   import {ipcRenderer, shell} from 'electron'
   import PagerHeader from '../components/PagerHeader'
   import SearchInput from '../components/SearchInput'
-  import GithubBadge from '../components/GithubBadge'
   import Index from '../pages/Index'
   import Setting from './Setting'
 
   export default {
     components: {
-      PagerHeader, SearchInput, GithubBadge, Index, Setting
+      PagerHeader, SearchInput, Index, Setting
     },
     data () {
       return {
