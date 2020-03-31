@@ -64,7 +64,12 @@
     },
     "linux": {
       "icon": "build/icons"
-    }
+    },
+    "publish": [
+      {
+        "provider": "github"
+      }
+    ]
   },
   "dependencies": {
     "@chenfengyuan/vue-qrcode": "^1.0.1",
