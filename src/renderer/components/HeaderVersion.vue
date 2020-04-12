@@ -18,7 +18,7 @@
     data () {
       return {
         version: this.$app.version,
-        appName: this.$app.name
+        appName: 'BT-猫'
       }
     },
     created () {

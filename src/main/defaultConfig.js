@@ -1,11 +1,11 @@
 module.exports = function () {
   return {
-    checkUpdateURL: 'https://magnetw.app/update.json',
+    checkUpdateURL: 'https://app.bt-mao.com/update.json',
     // 云解析URL
     cloud: false,
     cloudUrl: '',
     // 解析规则文件URL 支持网络链接和本地路径
-    ruleUrl: 'https://magnetw.app/rule.json',
+    ruleUrl: 'https://app.bt-mao.com/rule.json',
     // 默认最大化窗口
     maxWindow: false,
     // 是否显示需要代理的源站

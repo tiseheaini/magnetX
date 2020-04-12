@@ -2,7 +2,7 @@ import Vue from 'vue'
 
 Vue.use({
     install: (Vue, options) => {
-      const baseURL = 'https://magnetw.app'
+      const baseURL = 'https://app.bt-mao.com'
       Vue.prototype.$config = {
         baseURL: baseURL,
         docURL: `${baseURL}/guide`,
