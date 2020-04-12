@@ -125,6 +125,7 @@
   {
     "id": "btdiguo",
     "name": "BT目录",
+    "proxy": true,
     "url": "https://www.aixiazai.xyz",
     "paths": {
       "time": "/search-update/{k}/page-{p}.html",
@@ -161,7 +162,7 @@
   {
     "id": "bthub",
     "name": "BThub",
-    "url": "https://bthub.xyz",
+    "url": "https://bthub.club",
     "paths": {
       "preset": "/main-search-kw-{k}-{p}.html",
       "size": "/main-search-kw-{k}-length-{p}.html",
