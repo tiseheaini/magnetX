@@ -8,9 +8,6 @@
     </el-aside>
     <el-main>
       <el-scrollbar class="index-main">
-        <guide-page ref="guidePage" v-show="guidePage.show"
-                    :title="guidePage.title"
-                    :message="guidePage.message" :type="guidePage.type"></guide-page>
         <div v-if="activeRule">
           <div class="pager-content">
             <div ref="pagerSearchHeader">
@@ -53,6 +50,10 @@
           <detail-dialog v-if="detailDialog"
                          :dialog="detailDialog"></detail-dialog>
         </div>
+        <guide-page ref="guidePage" v-show="guidePage.show"
+            :title="guidePage.title"
+            :message="guidePage.message" :type="guidePage.type"></guide-page>
+        <ad-page></ad-page>
       </el-scrollbar>
     </el-main>
   </el-container>
@@ -65,6 +66,7 @@
   import SearchPagination from '../components/SearchPagination'
   import PagerItems from '../components/PagerItems'
   import GuidePage from '../components/GuidePage'
+  import AdPage from '../components/AdPage'
   import PagerHeader from '../components/PagerHeader'
   import DetailDialog from '../components/DetailDialog'
 
@@ -77,6 +79,7 @@
       SearchPagination,
       PagerItems,
       GuidePage,
+      AdPage,
       PagerHeader
     },
     data () {
@@ -97,6 +100,9 @@
           type: 'success',
           title: null,
           message: null
+        },
+        adPage: {
+          show: true
         },
         detailDialog: {
           show: false
@@ -257,7 +263,7 @@
   }
 
   .pager-content {
-    padding: 20px;
+    padding: 20px 20px 0px 20px;
   }
 
   .footer-search-pagination {

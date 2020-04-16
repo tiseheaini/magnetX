@@ -12,13 +12,13 @@
       <el-menu :default-active="active" v-loading="loading" @select="emitRuleChangeByID">
         <el-menu-item v-for="it in filterRules" :key="it.id" :index="it.id">
           <div slot="title" class="menu-item-title">
-          <span class="menu-item-title-text">
-            <el-image :src="it.icon||formatDefaultIcon(it.id)" class="favicon">
-              <i slot="placeholder"></i>
-              <i slot="error"></i>
-            </el-image>
-            <span class="source-name">{{it.name}}</span>
-          </span>
+            <span class="menu-item-title-text">
+              <el-image :src="it.icon||formatDefaultIcon(it.id)" class="favicon">
+                <i slot="placeholder"></i>
+                <i slot="error"></i>
+              </el-image>
+              <span class="source-name">{{it.name}}</span>
+            </span>
             <el-tooltip v-if="config.cloud&&config.cloudUrl" effect="dark" placement="right">
               <div slot="content">此源站将使用云解析</div>
               <i class="el-icon-cloudy"></i>

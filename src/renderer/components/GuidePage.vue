@@ -68,22 +68,12 @@
 <style scoped lang="scss">
 
   .guide-page {
-    margin-top: 70px;
     padding: 0 20px 20px 20px;
-    position: absolute;
     z-index: 2000;
-    left: 0;
-    right: 0;
   }
 
   .guide-page-alert {
     min-height: 36px;
-  }
-
-  .guide-page-content {
-    position: absolute;
-    top: 0;
-    margin-top: 60px;
   }
 
   .guide-content {

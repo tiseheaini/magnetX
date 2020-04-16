@@ -281,10 +281,21 @@ async function getRule () {
   return rule
 }
 
+async function loadAdByWeb () {
+  const url = config.adUrl
+  try {
+    return await request(url, {timeout: 8000, json: true})
+  } catch (e) {
+    console.error(e.message, '广告加载失败，返回空字符串')
+    return { html: '' }
+  }
+}
+
 module.exports = {
   applyConfig,
   loadRuleByURL,
   getRule,
+  loadAdByWeb,
   obtainSearchResult,
   clearCache,
   makeupSearchOption,
