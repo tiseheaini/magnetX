@@ -53,7 +53,7 @@
         <guide-page ref="guidePage" v-show="guidePage.show"
             :title="guidePage.title"
             :message="guidePage.message" :type="guidePage.type"></guide-page>
-        <ad-page></ad-page>
+        <ad-page v-show="adPage.show"></ad-page>
       </el-scrollbar>
     </el-main>
   </el-container>
@@ -158,6 +158,7 @@
         if (params.keyword) {
           console.info('搜索', JSON.stringify(params, '\t', 2))
           this.guidePage.show = false
+          this.adPage.show = false
           this.loading.table = true
           this.$http.get('search', {
             params: params
