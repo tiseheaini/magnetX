@@ -1,6 +1,6 @@
 {
   "name": "magnetx",
-  "version": "3.1.5",
+  "version": "3.1.7",
   "description": "磁力链接聚合搜索",
   "license": "GNU General Public License v3.0",
   "main": "./dist/electron/main.js",
