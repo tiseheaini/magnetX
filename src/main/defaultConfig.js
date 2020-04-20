@@ -7,7 +7,9 @@ module.exports = function () {
     // 解析规则文件URL 支持网络链接和本地路径
     ruleUrl: 'https://app.bt-mao.com/rule.json',
     // 广告URL
-    adUrl: 'http://app.bt-mao.com/ad.json',
+    adUrl: 'https://app.bt-mao.com/ad.json',
+    // 广告URL
+    onlineUrl: 'https://app.bt-mao.com/api/online',
     // 默认最大化窗口
     maxWindow: false,
     // 是否显示需要代理的源站

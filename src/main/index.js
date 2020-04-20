@@ -5,6 +5,7 @@ import {app, BrowserWindow, session} from 'electron'
 const registerMenu = require('./menu')
 const {appName, build} = require('../../package.json')
 const is = require('electron-is')
+const { v4: uuidv4 } = require('uuid')
 const Store = require('electron-store')
 const store = new Store()
 
@@ -70,6 +71,7 @@ function createWindow () {
   mainWindow.on('closed', (e) => {
     mainWindow = null
   })
+  registerUid()
   registerServer()
 }
 
@@ -77,6 +79,15 @@ async function registerServer () {
   const {registerIPC, registerServer} = require('./ipc')
   registerIPC(mainWindow)
   registerServer()
+}
+
+async function registerUid () {
+  if (!store.has('uid')) {
+    let uuid = uuidv4()
+    store.set('uid', uuid)
+  }
+
+  console.info('用户 uuid: ', store.get('uid'))
 }
 
 app.on('ready', createWindow)

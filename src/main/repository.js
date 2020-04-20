@@ -1,10 +1,13 @@
 const format = require('./format-parser')
 const URI = require('urijs')
 const fs = require('fs')
+const path = require('path')
+const nodeUrl = require('url')
 const createAxios = require('./axios')
 const cacheManager = require('./cache')
 const {loadFilterData, isFilter} = require('./filter/filter')
 const xpath = require('xpath')
+const Store = require('electron-store')
 const DOMParser = require('xmldom').DOMParser
 const htmlparser2 = require('htmlparser2')
 const domParser = new DOMParser({
@@ -20,6 +23,8 @@ const domParser = new DOMParser({
     }
   }
 })
+
+const store = new Store()
 
 let ruleMap = {}
 let config = null
@@ -291,11 +296,28 @@ async function loadAdByWeb () {
   }
 }
 
+async function loadOnlineByWeb () {
+  const uuid = store.get('uid')
+  const onlineUrl = nodeUrl.parse(config.onlineUrl)
+  const webPath = path.join(onlineUrl.path, uuid)
+
+  const url = nodeUrl.resolve(config.onlineUrl, webPath)
+  console.info(url)
+
+  try {
+    return await request(url, {timeout: 8000, json: true})
+  } catch (e) {
+    console.error(e.message, '在线人数加载失败，返回默认值')
+    return { html: '' }
+  }
+}
+
 module.exports = {
   applyConfig,
   loadRuleByURL,
   getRule,
   loadAdByWeb,
+  loadOnlineByWeb,
   obtainSearchResult,
   clearCache,
   makeupSearchOption,

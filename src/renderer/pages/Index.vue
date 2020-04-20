@@ -5,6 +5,7 @@
         :active="page.current.id"
         @rule-refresh-finished="handleRuleRefreshFinished"
         @change="handleRuleChanged"></aside-menu>
+      <div class="online-num">在线人数 {{onlineCount}}</div>
     </el-aside>
     <el-main>
       <el-scrollbar class="index-main">
@@ -107,7 +108,8 @@
         detailDialog: {
           show: false
         },
-        windowKey: 'normal'
+        windowKey: 'normal',
+        onlineCount: 1
       }
     },
     watch: {},
@@ -189,12 +191,27 @@
       },
       handleWindowChanged (key) {
         this.windowKey = key
+      },
+      handleRequestOnlineCount () {
+        console.info('请求用户统计 setInterval')
+        this.$http.get('get-online')
+          .then((rsp) => {
+            this.onlineCount = rsp.data.count
+          })
       }
     },
     created () {
     },
     mounted () {
+      this.handleRequestOnlineCount()
+      this.timer = setInterval(() => {
+        this.handleRequestOnlineCount()
+      }, 1000 * 60 * 2)
       // this.handleRequestSearch()
+    },
+    beforeDestroy () {
+      console.info('清除用户统计 clearInterval')
+      clearInterval(this.timer)
     },
     head: {
       title: function () {
@@ -218,6 +235,19 @@
   .container-full {
     max-width: inherit;
     margin: auto;
+  }
+
+  .el-aside {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .online-num {
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    background-color: #55575B;
+    color: #5CBA33;
   }
 
   .el-main {

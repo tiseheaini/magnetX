@@ -55,6 +55,10 @@ router.get('/get-ad', async (ctx) => {
   ctx.success(await repo.loadAdByWeb())
 })
 
+router.get('/get-online', async (ctx) => {
+  ctx.success(await repo.loadOnlineByWeb())
+})
+
 app.use(router.routes()).use(router.allowedMethods())
 
 function getIPAddress () {
